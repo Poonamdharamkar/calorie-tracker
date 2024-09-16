@@ -1,0 +1,36 @@
+<div class="container-fluid">
+<app-header></app-header>
+</div>
+
+
+
+
+<div class="container-fluid form-block">
+  <div class="row">
+    <div class="col-4">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" [(ngModel)]="name" id="Name" placeholder="Name">
+          </div>
+          <div class="form-group">
+            
+            <input type="number" class="form-control" id="Calories" placeholder="Calories" name="calorie" [(ngModel)]="calorie">
+          </div>
+          <div class="form-group">
+            
+            <input type="text" class="form-control" id="Image" placeholder="Image" name="image" [(ngModel)]="image">
+          </div>
+            <input type="button" class="form-control btn btn-primary"  (click)="onAdd()" value="Add" id="Add" >
+        </form>
+        <app-today-list [data]="todaylist" (rmEvent) = "removeItem($event)" [total]="total" ></app-today-list>
+    </div>
+      <div class="col-8">
+        
+        <app-food-list  [data]="foodlist" (newItemEvent) = "fun($event)"></app-food-list>
+      </div>
+  
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

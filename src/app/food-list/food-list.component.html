@@ -1,0 +1,39 @@
+<div class="card-columns">
+   
+    
+
+    <ng-container *ngIf="fooditems.length == 0; else elseTemplate ">
+
+        <div class="card">
+            <img class="card-img-top"
+                src="https://image.shutterstock.com/image-photo/red-apple-isolated-on-white-260nw-1727544364.jpg"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Example (Plaese add food)</h5>
+                <input type="number" placeholder="Quantity" class="form-control">
+                <input type="button" class="button btn btn-danger" style="margin-top: 10px;" value='Add'>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-template #elseTemplate>
+    <div *ngFor="let item of fooditems;let i= index" class="card">
+        <img class="card-img-top" src={{item.image}} alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Name : {{item.name}}</h5><br>
+            <h5 class="card-title">Calorie : {{item.calorie}}</h5><br>
+            <input type="number" (keyup)="onkey($event)" placeholder="Quantity" class="form-control">
+            <input type="button" (click)="addToday(i,item.name,item.calorie)" class="button btn btn-danger"
+                style="margin-top: 20px;margin-bottom: 20px;" value='Add'>
+        </div>
+    
+    </div>
+        
+    </ng-template>
+    
+
+
+    
+   
+    
+</div>

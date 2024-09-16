@@ -1,0 +1,33 @@
+<div class="row bord">
+    <div class="col">
+        <h2>Today's List</h2>
+    </div>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Quantity</td>
+            <td>Calorie</td>
+            <td>Total</td>
+        </tr>
+        <ng-container *ngIf="items.length == 0; else elseTemplate">
+            <tr>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+            </tr>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <tr *ngFor="let item of items;let i=index">
+                <td>{{item.name}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.cal}}</td>
+                <td>{{item.tot}}</td>
+                <td class="pointer" (click)="remove(i)">X</td>
+            </tr>
+        </ng-template>
+        
+       
+    </table>
+    <h3 class="tot">Total : {{tot}}</h3>
+</div>
